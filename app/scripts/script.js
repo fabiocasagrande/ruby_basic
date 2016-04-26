@@ -51,9 +51,9 @@ base.initRandomVars = function(){
 	if(this.randName3==this.randName2 || this.randName3==this.randName1 ){
 		this.randName3=this.getRandomName();
 	}	
-	this.randName4=this.getRandomName();
+	this.randName4=capitalize(this.getRandomName());
 	if(this.randName4==this.randName3 ||this.randName34==this.randName2 || this.randName4==this.randName1 ){
-		this.randName4=this.getRandomName();
+		this.randName4=capitalize(this.getRandomName());
 	}	
 	
 }
@@ -64,25 +64,29 @@ base.generateQA = function(){
 	var te=this.getRandomNumb();
 	var q1="Call the 'm1' method using the default argument.";
 	var q2="Call the 'm1' method using the value '"+te+"' for the argument";
-	var q3="Is '"+this.randName1+"' an instance variable?";
-	var q4="Is '"+this.randName2+"' an instance variable?";
-	var q5="Is '"+this.randName3+"' an instance variable?";
-	var q6="Is '"+this.randName4+"' an instance variable?";
-	var q7="Is '"+this.randName1+"' a class constant?";
-	var q8="Is '"+this.randName2+"' a class constant?";
-	var q9="Is '"+this.randName3+"' a class constant?";
-	var q10="Is '"+this.randName4+"' a class constant?";
+	var q3="True or False: Is '"+this.randName1+"' an instance variable?";
+	var q4="True or False: Is '"+this.randName2+"' an instance variable?";
+	var q5="True or False: Is '"+this.randName3+"' an instance variable?";
+	var q6="True or False: Is '"+this.randName4+"' an instance variable?";
+	var q7="True or False: Is '"+this.randName1+"' a class constant?";
+	var q8="True or False: Is '"+this.randName2+"' a class constant?";
+	var q9="True or False: Is '"+this.randName3+"' a class constant?";
+	var q10="True or False: Is '"+this.randName4+"' a class constant?";
 	var q11="How would you access the class constant '"+this.randName4+"' ?";
-	var q12="Is 'm1' a class method?";
-	var q13="Is 'm2' a class method?";
+	var q12="True or False: Is 'm1' a class method?";
+	var q13="True or False: Is 'm2' a class method?";
 	var q14="Call the 'm2' method using the value '"+te+"' for the argument";
 	var q15="Assign the value '"+te+"' to '"+this.randName1+"'";
-	var q16="Is the expression 'x."+this.randName1+"' legal?";
-	var q17="Is the expression 'x."+this.randName1+"=' legal?";
-	var q18="Is the expression 'x."+this.randName2+"' legal?";
-	var q19="Is the expression 'x.m1' legal?";
-	var q20="Is the expression 'x."+this.randName2+"=' legal?";
-	var q21="Is the expression 'x.m2' legal?";	
+	var q16="True or False: Is the expression 'x."+this.randName1+"' legal?";
+	var q17="True or False: Is the expression 'x."+this.randName1+"=' legal?";
+	var q18="True or False: Is the expression 'x."+this.randName2+"' legal?";
+	var q19="True or False: Is the expression 'x.m1' legal?";
+	var q20="True or False: Is the expression 'x."+this.randName2+"=' legal?";
+	var q21="True or False: Is the expression 'x.m2' legal?";	
+	var q22="True or False: Is '"+this.randName1+"' a class variable?";
+	var q23="True or False: Is '"+this.randName2+"' a class variable?";
+	var q24="True or False: Is '"+this.randName3+"' a class variable?";
+	var q25="True or False: Is '"+this.randName4+"' a class variable?";
 	var a1="x.m1";
 	var a2="x.m1("+te+")";
 	var a3="true";
@@ -104,13 +108,113 @@ base.generateQA = function(){
 	var a19="true";
 	var a20="false";
 	var a21="false";
-	var quesst=[[q1],[q2],[q3],[q4],[q5],[q6],[q7],[q8],[q9],[q10],[q11],[q12],[q13],[q14],[q15],[q16],[q17],[q18],[q19],[q20],[q21]];
-	var anns=[[a1],[a2],[a3],[a4],[a5],[a6],[a7],[a8],[a9],[a10],[a11],[a12],[a13],[a14],[a15],[a16],[a17],[a18],[a19],[a20],[a21]];
-	var inter=this.getRandomInt(0,21);
+	var a22="false";
+	var a23="false";
+	var a24="true";
+	var a25="false";
+	var quesst=[[q1],[q2],[q3],[q4],[q5],[q6],[q7],[q8],[q9],[q10],[q11],[q12],[q13],[q14],[q15],[q16],[q17],[q18],[q19],[q20],[q21],[q22],[q23],[q24],[q25]];
+	var anns=[[a1],[a2],[a3],[a4],[a5],[a6],[a7],[a8],[a9],[a10],[a11],[a12],[a13],[a14],[a15],[a16],[a17],[a18],[a19],[a20],[a21],[a22],[a23],[a24],[a25]];
+	var inter=this.getRandomInt(0,25);
 	this.randomQuestion=quesst[inter];
 	this.answ=anns[inter];
 	
 }
+
+function capitalize(str){
+	
+	str = str.toString().toLowerCase().replace(/\b[a-z]/g, function(letter) { return cpL(letter);});
+	return str;
+	
+	
+}
+
+function cpL(letter){
+switch(letter) {
+    case 'q':
+        return 'Q';
+       
+    case 'w':
+          return 'W';
+	case 'e':
+        return 'E';
+       
+    case 'r':
+          return 'R';
+	case 't':
+        return 'T';
+       
+    case 'y':
+          return 'Y';
+		  
+	case 'u':
+        return 'U';
+       
+    case 'i':
+          return 'I';
+	case 'o':
+        return 'O';
+       
+    case 'p':
+          return 'P';
+	case 'a':
+        return 'A';
+       
+    case 's':
+          return 'S';	
+
+
+	case 'd':
+        return 'D';
+       
+    case 'f':
+          return 'F';
+	case 'g':
+        return 'G';
+       
+    case 'h':
+          return 'H';
+	case 'j':
+        return 'J';
+       
+    case 'k':
+          return 'K';
+		  
+		  
+		  
+	case 'l':
+        return 'L';
+       
+    case 'z':
+          return 'Z';
+	case 'x':
+        return 'X';
+       
+    case 'c':
+          return 'C';
+	case 'v':
+        return 'V';
+       
+    case 'b':
+          return 'B';
+
+		  
+	case 'n':
+        return 'N';
+       
+    case 'm':
+          return 'M';	  
+		  
+		  
+} 
+
+}
+
+
+
+
+
+
+
 
 
 base.getRandomBool = function(){
