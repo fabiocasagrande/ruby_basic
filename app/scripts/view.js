@@ -36,6 +36,8 @@ SimView.prototype.setupControls = function() {
 		$( "#btnStart" ).prop('disabled', true);
 		// enable submit button
 		$( "#btnSubmit" ).prop('disabled', false);
+		
+		document.getElementById("qqq").style.display = "block";
 		document.getElementById("qq").style.display = "block";
 		document.getElementById("testTitle").style.display = "none";
 		document.getElementById("hPos").style.display = "block";
@@ -76,6 +78,7 @@ SimView.prototype.setupControls = function() {
 			// send the student a message
 			console.log('victoia!!!');
 			// tell Smart Sparrow to check the done condition
+			document.getElementById("qqq").style.display = "none";
 			document.getElementById("qq").style.display = "none";
 			document.getElementById("hPos").style.display = "none";
 			document.getElementById("txtAnswer").style.display = "none";
